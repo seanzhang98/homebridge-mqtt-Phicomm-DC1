@@ -1,6 +1,6 @@
 # Homebridge MQTT Power Strip
 
- [![npm version](https://badge.fury.io/js/homebridge-mqtt-power-strip.svg)](https://badge.fury.io/js/https://www.npmjs.com/package/homebridge-mqtt-power-strip) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+ [![npm version](https://badge.fury.io/js/homebridge-mqtt-power-strip.svg)](https://www.npmjs.com/package/homebridge-mqtt-power-strip) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 A Homebridge plugin to create grouped switches to control a power strip through MQTT.
 
