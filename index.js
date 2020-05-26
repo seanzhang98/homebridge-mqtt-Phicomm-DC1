@@ -17,6 +17,7 @@ function PowerStrip(log, config) {
   this.config = config;
   this.name = config.name;
   this.services = [];
+  this.ids = [];
 
   if (!config) {
     return;
@@ -66,6 +67,12 @@ function PowerStrip(log, config) {
     .setCharacteristic(Characteristic.FirmwareRevision, "1.0.0");
 
   for (let i = 0; i < config.relayCount; i++) {
+    if (config.ids && config.ids[i]) {
+      this.ids.push(config.ids[i]);
+    } else {
+      this.ids.push((i + 1).toString());
+    }
+
     let uuid = UUIDGen.generate(this.name + i);
     let name;
 
@@ -77,7 +84,7 @@ function PowerStrip(log, config) {
 
     let switchService = new Service.Outlet(name, uuid);
     switchService.getCharacteristic(Characteristic.On)
-      .on('set', this.setOn.bind(this, i + 1));
+      .on('set', this.setOn.bind(this, i));
 
     this.services.push(switchService);
   }
@@ -94,7 +101,7 @@ PowerStrip.prototype.mqttConnect = function() {
 
   if(that.config.topics.getOn) {
     for (i = 0; i < that.config.relayCount; i++) {
-      let topic = that.config.topics.getOn.replace(/{id}/, i + 1);
+      let topic = that.config.topics.getOn.replace(/{id}/, that.ids[i]);
       that.mqttClient.subscribe(topic, {'qos': that.config.mqtt.qos || 1});
       that.mqttGetOnTopics.push([topic, i]);
     }
@@ -104,13 +111,13 @@ PowerStrip.prototype.mqttConnect = function() {
     if (that.config.topics.retrieve.notify) {
       if (that.config.topics.retrieve.get) {
         for (i = 0; i < that.config.relayCount; i++) {
-          let topic = that.config.topics.retrieve.get.replace(/{id}/, i + 1);
+          let topic = that.config.topics.retrieve.get.replace(/{id}/, that.ids[i]);
           that.mqttClient.subscribe(topic, {'qos': that.config.mqtt.qos || 1});
           that.mqttGetOnTopics.push([topic, i]);
         }
       }
       for (i = 0; i < that.config.relayCount; i++) {
-        let topic = that.config.topics.retrieve.notify.replace(/{id}/, i + 1);
+        let topic = that.config.topics.retrieve.notify.replace(/{id}/, that.ids[i]);
         that.mqttClient.publish(topic, that.config.topics.retrieve.message || '', {'qos': that.config.mqtt.qos || 1});
       }
     } else {
@@ -142,7 +149,7 @@ PowerStrip.prototype.mqttMessage = function(topic, msg, packet) {
 
 PowerStrip.prototype.setOn = function (id, on, callback) {
   if (this.config.topics.setOn) {
-    let topic = this.config.topics.setOn.replace(/{id}/, id);
+    let topic = this.config.topics.setOn.replace(/{id}/, this.ids[id]);
     if (on) {
       this.mqttClient.publish(topic, this.config.onValue || "true", {'qos': that.config.mqtt.qos || 1});
     } else {

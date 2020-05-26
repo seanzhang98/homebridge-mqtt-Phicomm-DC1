@@ -1,6 +1,6 @@
 # Homebridge MQTT Power Strip
 
- [![npm version](https://badge.fury.io/js/homebridge-mqtt-power-strip.svg)](https://www.npmjs.com/package/homebridge-mqtt-power-strip) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+ [![npm version](https://img.shields.io/npm/v/homebridge-mqtt-power-strip)](https://www.npmjs.com/package/homebridge-mqtt-power-strip) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 A Homebridge plugin to create grouped switches to control a power strip through MQTT.
 
@@ -16,7 +16,7 @@ Run `npm install homebridge-mqtt-power-strip -g`
 |-----|--------|----------|---------------|------|
 | accessory | | Yes | | Must be 'mqttPowerStrip'. |
 | name | | Yes | | The name of your power strip. |
-| manufacturer | | No | ***REMOVED*** | The manufacturer of the power strip. |
+| manufacturer | | No | Oxixes | The manufacturer of the power strip. |
 | model | | No | MQTT Power Strip | The model of the power strip. |
 | serial | | No | 00N00 | The serial number of the power strip. |
 | relayCount | | Yes | | The amount of relays your power strip has (as int). |
@@ -36,14 +36,15 @@ Run `npm install homebridge-mqtt-power-strip -g`
 | | notify (inside retrieve) | No | | A topic to sent a message to retrieve the data. You can use `{id}`. |
 | | get (inside retrieve) | No | | A topic to receive the state of each relay. You can use `{id}` and if it's the same topic as the getOn, you don't need to specify it. |
 | | message (inside retrieve) | No | | The message to be sent on the notify topic. If it is not specified an empty message is sent. |
-| names | | No | An array with `"{name} Switch {id}"` i.e. `Test power strip Switch 1` | An array that contains the name for each id IN ORDER, so the first element is the id=1 and so on. |
+| names | | No | An array with `"{name} Switch {id}"` i.e. `Test power strip Switch 1` | An array that contains the name for each id IN ORDER, so the first element is the first id and so on. |
+| ids | | No | An array with the numbers 1 to `relayCount` | An array that contains the IDs for each device IN ORDER, so the first element is the first name and so on. |
 | onValue | | No | `"true"` | The value the device sends as 'on'. |
 | offValue | | No | `"false"` | The value the device sends as 'off'. |
 
 ## Roadmap
 
 - [ ] Add support for SSL on the MQTT connection.
-- [ ] Allow to specify custom ids instead of numbers from 1 - relayCount.
+- [x] Allow to specify custom ids instead of numbers from 1 - relayCount.
 - [ ] Log less errors when something occurs.
 - [ ] Add ability to detect when the power strip goes online or offline.
 - [ ] Add UI support.
