@@ -1,0 +1,20 @@
+{
+  "accessory": "mqttPowerStrip",
+  "name": "Test power strip",
+  "relayCount": 5,
+  "mqtt": {
+    "host": "192.168.1.1",
+    "port": 8883,
+    "username": "user",
+    "password": "pa$$word"
+  },
+  "topics": {
+    "setOn": "cmnd/powerStrip/POWER{id}",
+    "getOn": "stat/powerStrip/POWER{id}",
+    "retrieve": {
+      "notify": "cmnd/powerStrip/POWER{id}"
+    }
+  },
+  "onValue": "ON",
+  "offValue": "OFF"
+}

@@ -1,0 +1,26 @@
+{
+  "displayName": "Homebridge MQTT Power Strip",
+  "name": "homebridge-mqtt-power-strip",
+  "version": "1.0.0",
+  "description": "A Homebridge plugin to create grouped switches to control a power strip through MQTT.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "homebridge",
+    "homebridge-plugin"
+  ],
+  "engines": {
+    "node": ">=10.17.0",
+    "homebridge": ">=0.2.0"
+  },
+  "author": "Oxixes",
+  "license": "MIT",
+  "dependencies": {
+    "mqtt": "^3.0.0"
+  },
+  "devDependencies": {
+    "homebridge": "^1.1.0"
+  }
+}
