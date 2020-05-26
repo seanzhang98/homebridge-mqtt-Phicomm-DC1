@@ -45,10 +45,16 @@ Run `npm install homebridge-mqtt-power-strip -g`
 - [ ] Add support for SSL on the MQTT connection.
 - [ ] Allow to specify custom ids instead of numbers from 1 - relayCount.
 - [ ] Log less errors when something occurs.
+- [ ] Add ability to detect when the power strip goes online or offline.
+- [ ] Add UI support.
 
 ## Bugs
 
 If you discover a bug, please open an issue and I will try to solve it as fast as I can. Please provide the logs (the console output) and configuration file (only the relevant part) and be careful to not provide the MQTT username and password (replace those values with other ones) when submitting the issue.
+
+## Acknowledgment
+
+This plugin was heavily inspired by [homebridge-mqttthing](https://github.com/arachnetech/homebridge-mqttthing).
 
 ## License
 [MIT](LICENSE)
