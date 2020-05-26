@@ -10,7 +10,7 @@ Run `npm install homebridge-mqtt-power-strip -g`
 
 ## Configuration
 
-**Note**: The `{id}` string in the topics is replaced by a number (starting by one) representing each relay. So for the first relay the `{id}` will be replaced by `1` and so on. The maximum number is `relayCount`.
+**Note**: The `{id}` string in the topics is replaced by a number (starting by one) representing each relay. So for the first relay the `{id}` will be replaced by `1` and so on. The maximum number is `relayCount`. Instead of numbers you can use your custom strings by using the `ids` key in the config (see below).
 
 | Key | Subkey | Required | Default Value | Note |
 |-----|--------|----------|---------------|------|
