@@ -25,7 +25,7 @@ Run `npm install homebridge-mqtt-power-strip -g`
 | | port | Yes | | The MQTT port (as int). |
 | | username | No | | The username to log in. |
 | | password | No | | The password to log in. |
-| | qos | No | 1 | The Quality Of Service (subscribe and pusblish). |
+| | qos | No | 1 | The Quality Of Service (subscribe and publish). |
 | | reconnectInterval | No | 2000 (ms) | The time between reconnections when the connection is lost with the broker (in ms). |
 | | connectTimeout | No | 10000 (ms) | The time to timeout with the broker (in ms). |
 | | maxErrorCount | No | 10 | Maximum time of reconnection attempts with the broker until the plugin gives up. You can use -1 to disable it. |
