@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://github.com/homebridge/homebridge"><img src="https://raw.githubusercontent.com/seanzhang98/homebridge-mqtt-phicomm-dc1-powerstrip/images/logo.png" height="240"></a>
+  <a href="https://github.com/homebridge/homebridge"><img src="https://github.com/seanzhang98/homebridge-mqtt-Phicomm-DC1/raw/master/images/logo.png" height="240"></a>
 </p>
 
 <h1 align="center">
