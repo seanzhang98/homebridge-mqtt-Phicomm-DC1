@@ -1,14 +1,19 @@
-# Homebridge MQTT Power Strip
+<p align="center">
+  <a href="https://github.com/homebridge/homebridge"><img src="https://raw.githubusercontent.com/seanzhang98/homebridge-mqtt-phicomm-dc1-powerstrip/images/logo.png" height="240"></a>
+</p>
 
- [![npm version](https://img.shields.io/npm/v/homebridge-mqtt-power-strip)](https://www.npmjs.com/package/homebridge-mqtt-power-strip) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+<h1 align="center">
+Homebridge MQTT Phicomm DC1 Powerstrip</h1>
 
-A Homebridge plugin to create grouped switches to control a power strip through MQTT.
+[![npm version](https://badge.fury.io/js/homebridge-mqtt-phicomm-dc1-powerstrip.svg)](https://badge.fury.io/js/homebridge-mqtt-phicomm-dc1-powerstrip)
 
-## Installation
+一款通过 MQTT 接入斐讯 DC1 排插的 Homebridge 插件。
 
-Run `npm install homebridge-mqtt-power-strip -g`
+## 安装
 
-## Configuration
+Run `npm install homebridge-mqtt-phicomm-dc1-powerstrip`
+
+## 配置
 
 **Note**: The `{id}` string in the topics is replaced by a number (starting by one) representing each relay. So for the first relay the `{id}` will be replaced by `1` and so on. The maximum number is `relayCount`. Instead of numbers you can use your custom strings by using the `ids` key in the config (see below).
 
@@ -40,14 +45,6 @@ Run `npm install homebridge-mqtt-power-strip -g`
 | ids | | No | An array with the numbers 1 to `relayCount` | An array that contains the IDs for each device IN ORDER, so the first element is the first name and so on. |
 | onValue | | No | `"true"` | The value the device sends as 'on'. |
 | offValue | | No | `"false"` | The value the device sends as 'off'. |
-
-## Roadmap
-
-- [ ] Add support for SSL on the MQTT connection.
-- [x] Allow to specify custom ids instead of numbers from 1 - relayCount.
-- [ ] Log less errors when something occurs.
-- [ ] Add ability to detect when the power strip goes online or offline.
-- [ ] Add UI support.
 
 ## Bugs
 

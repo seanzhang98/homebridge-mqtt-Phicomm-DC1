@@ -1,30 +1,32 @@
 {
-  "displayName": "Homebridge MQTT Power Strip",
-  "name": "homebridge-mqtt-power-strip",
-  "version": "1.1.0",
-  "description": "A Homebridge plugin to create grouped switches to control a power strip through MQTT.",
+  "name": "homebridge-mqtt-phicomm-dc1-powerstrip",
+  "version": "1.0.14",
+  "description": "A Homebridge plugin to create a power strip for Phicomm DC1 through MQTT.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/oxixes/homebridge-mqtt-power-strip.git"
+    "url": "git+https://github.com/seanzhang98/homebridge-mqtt-Phicomm-DC1.git"
   },
   "bugs": {
-    "url": "https://github.com/oxixes/homebridge-mqtt-power-strip/issues"
+    "url": "https://github.com/seanzhang98/homebridge-mqtt-Phicomm-DC1/issues"
   },
-  "homepage": "https://github.com/oxixes/homebridge-mqtt-power-strip#readme",
+  "homepage": "https://github.com/seanzhang98/homebridge-mqtt-Phicomm-DC1#readme",
   "keywords": [
     "homebridge",
-    "homebridge-plugin"
+    "homebridge-plugin",
+    "Phicomm",
+    "DC1",
+    "powerstrip"
   ],
   "engines": {
     "node": ">=10.17.0",
     "homebridge": ">=0.2.0"
   },
-  "author": "Oxixes",
-  "license": "MIT",
+  "author": "SeanZhang98",
+  "license": "ISC",
   "dependencies": {
     "mqtt": "^4.2.8"
   },

@@ -9,7 +9,7 @@ module.exports = function(homebridge) {
   Characteristic = homebridge.hap.Characteristic;
   HomebridgeAPI = homebridge;
   UUIDGen = homebridge.hap.uuid;
-  homebridge.registerAccessory("homebridge-mqtt-power-strip", "mqttPowerStrip", PowerStrip);
+  homebridge.registerAccessory("homebridge-mqtt-Phicomm-DC1", "mqttPhicommDC1", PowerStrip);
 }
 
 function PowerStrip(log, config) {
@@ -25,9 +25,6 @@ function PowerStrip(log, config) {
 
   if (!this.name) {
     this.log("\x1b[31mName not specified!\x1b[0m");
-    return;
-  } else if (!config.relayCount) {
-    this.log("\x1b[31mRelay count not specified!\x1b[0m");
     return;
   } else if (!config.mqtt) {
     this.log("\x1b[31mMQTT config not specified!\x1b[0m");
@@ -61,12 +58,12 @@ function PowerStrip(log, config) {
   var informationService = new Service.AccessoryInformation();
 
   informationService
-    .setCharacteristic(Characteristic.Manufacturer, config.manufacturer || "Oxixes")
-    .setCharacteristic(Characteristic.Model, config.model || "MQTT Power Strip")
-    .setCharacteristic(Characteristic.SerialNumber, config.serial || "00N00")
+    .setCharacteristic(Characteristic.Manufacturer, 'Phicomm')
+    .setCharacteristic(Characteristic.Model, 'DC1')
+    .setCharacteristic(Characteristic.SerialNumber, config.serial || "SN02311D6F200")
     .setCharacteristic(Characteristic.FirmwareRevision, "1.0.0");
 
-  for (let i = 0; i < config.relayCount; i++) {
+  for (let i = 0; i < 4; i++) {
     if (config.ids && config.ids[i]) {
       this.ids.push(config.ids[i]);
     } else {
@@ -79,7 +76,7 @@ function PowerStrip(log, config) {
     if (this.config.names && this.config.names[i]) {
       name = this.config.names[i];
     } else {
-      name = this.name + " Switch " + (i + 1);
+      name = this.name + "开关" + (i + 1);
     }
 
     let switchService = new Service.Outlet(name, uuid);
@@ -100,7 +97,7 @@ PowerStrip.prototype.mqttConnect = function() {
   that.mqttGetOnTopics = [];
 
   if(that.config.topics.getOn) {
-    for (i = 0; i < that.config.relayCount; i++) {
+    for (i = 0; i < 4; i++) {
       let topic = that.config.topics.getOn.replace(/{id}/, that.ids[i]);
       that.mqttClient.subscribe(topic, {'qos': that.config.mqtt.qos || 1});
       that.mqttGetOnTopics.push([topic, i]);
@@ -110,13 +107,13 @@ PowerStrip.prototype.mqttConnect = function() {
   if (that.config.topics.retrieve) {
     if (that.config.topics.retrieve.notify) {
       if (that.config.topics.retrieve.get) {
-        for (i = 0; i < that.config.relayCount; i++) {
+        for (i = 0; i < 4; i++) {
           let topic = that.config.topics.retrieve.get.replace(/{id}/, that.ids[i]);
           that.mqttClient.subscribe(topic, {'qos': that.config.mqtt.qos || 1});
           that.mqttGetOnTopics.push([topic, i]);
         }
       }
-      for (i = 0; i < that.config.relayCount; i++) {
+      for (i = 0; i < 4; i++) {
         let topic = that.config.topics.retrieve.notify.replace(/{id}/, that.ids[i]);
         that.mqttClient.publish(topic, that.config.topics.retrieve.message || '', {'qos': that.config.mqtt.qos || 1});
       }

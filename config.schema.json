@@ -1,0 +1,77 @@
+{
+   "pluginAlias":"mqttPhicommDC1",
+   "pluginType":"accessory",
+   "headerDisplay":"A homebridge plugin for Phicomm DC1",
+   "footerDisplay":"This project is based on oxixes/homebridge-mqtt-power-strip.",
+   "schema":{
+      "type":"object",
+      "properties":{
+         "name":{
+            "title":"Device name",
+            "type":"string",
+            "description":"Name you want to show in Home app",
+            "required":true
+         },
+         "mqtt":{
+            "type":"object",
+            "title":"MQTT SETTING",
+            "properties":{
+               "host":{
+                  "type":"string",
+                  "description":"host of your mqtt server",
+                  "required":true
+               },
+               "port":{
+                  "type":"integer",
+                  "description":"port of your mqtt server",
+                  "required":true
+               },
+               "username":{
+                  "type":"string",
+                  "required":true
+               },
+               "password":{
+                  "type":"string",
+                  "required":true
+               }
+            }
+         },
+         "topics":{
+            "type":"object",
+            "title":"TOPICS SETTING",
+            "properties":{
+               "setOn":{
+                  "type":"string",
+                  "description":"Topic used to set of 'On' status",
+                  "required":true
+               },
+               "getOn":{
+                  "type":"string",
+                  "description":"Topic used to get of 'On' status",
+                  "required":true
+               },
+               "retrieve":{
+                  "type":"object",
+                  "properties":{
+                     "notify":{
+                        "type":"string",
+                        "description":"Topic used to get of 'notify' status",
+                        "required":true
+                     }
+                  }
+               }
+            }
+         },
+         "onValue":{
+            "type":"string",
+            "default":"ON",
+            "required":true
+         },
+         "offValue":{
+            "type":"string",
+            "default":"OFF",
+            "required":true
+         }
+      }
+   }
+}
