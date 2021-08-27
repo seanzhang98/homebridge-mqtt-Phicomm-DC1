@@ -9,6 +9,7 @@
          "name":{
             "title":"Device name",
             "type":"string",
+            "default": "Phicomm DC1",
             "description":"Name you want to show in Home app",
             "required":true
          },
@@ -24,6 +25,7 @@
                "port":{
                   "type":"integer",
                   "description":"port of your mqtt server",
+                  "default": "1883",
                   "required":true
                },
                "username":{
@@ -43,11 +45,13 @@
                "setOn":{
                   "type":"string",
                   "description":"Topic used to set of 'On' status",
+                  "default": "cmnd/powerStrip/POWER{id}",
                   "required":true
                },
                "getOn":{
                   "type":"string",
                   "description":"Topic used to get of 'On' status",
+                  "default": "stat/powerStrip/POWER{id}",
                   "required":true
                },
                "retrieve":{
@@ -56,6 +60,7 @@
                      "notify":{
                         "type":"string",
                         "description":"Topic used to get of 'notify' status",
+                        "default": "stat/powerStrip/POWER{id}",
                         "required":true
                      }
                   }
