@@ -1,7 +1,6 @@
 {
-  "accessory": "mqttPowerStrip",
-  "name": "Test power strip",
-  "relayCount": 5,
+  "accessory": "mqttPhicommDC1",
+  "name": "TPhicomm DC1",
   "mqtt": {
     "host": "192.168.1.1",
     "port": 8883,
