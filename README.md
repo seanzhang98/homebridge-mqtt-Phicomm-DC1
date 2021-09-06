@@ -20,6 +20,12 @@ Run `npm install homebridge-mqtt-phicomm-dc1-powerstrip`
 根据 Config UI 填写相关信息。
 Topic 中的 {devicename} 需替换为固件中的主机名（位于控制页最下端），其他固件根据相应的 MQTT 格式进行填写。
 
+<img src="https://github.com/seanzhang98/homebridge-mqtt-Phicomm-DC1/raw/master/images/configui.png" width = "1500" align=center />
+
+## 截图
+
+<img src="https://github.com/seanzhang98/homebridge-mqtt-Phicomm-DC1/raw/master/images/plug1.PNG" width = "500" align=center />
+
 ## Acknowledgment
 
 This plugin was heavily inspired by [homebridge-mqttthing](https://github.com/arachnetech/homebridge-mqttthing).

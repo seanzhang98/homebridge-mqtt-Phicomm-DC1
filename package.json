@@ -1,6 +1,6 @@
 {
   "name": "homebridge-mqtt-phicomm-dc1-powerstrip",
-  "version": "1.0.15",
+  "version": "1.1.0",
   "description": "A Homebridge plugin to create a power strip for Phicomm DC1 through MQTT.",
   "main": "index.js",
   "scripts": {
