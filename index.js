@@ -148,7 +148,7 @@ PowerStrip.prototype.setOn = function (id, on, callback) {
   if (this.config.topics.setOn) {
     let topic = this.config.topics.setOn.replace(/{id}/, this.ids[id]);
     if (on) {
-      this.mqttClient.publish(topic, this.config.onValue || "true", {'qos': that.config.mqtt.qos || 1});
+      this.mqttClient.publish(topic, this.config.onVal ue || "true", {'qos': that.config.mqtt.qos || 1});
     } else {
       this.mqttClient.publish(topic, this.config.offValue || "false", {'qos': that.config.mqtt.qos || 1});
     }

@@ -44,14 +44,14 @@
             "properties":{
                "setOn":{
                   "type":"string",
-                  "description":"Topic used to set of 'On' status",
-                  "default": "cmnd/powerStrip/POWER{id}",
+                  "description":"Replace {devicename} with your device unique id",
+                  "default": "DC1/{devicename}/cmnd/power{id}",
                   "required":true
                },
                "getOn":{
                   "type":"string",
-                  "description":"Topic used to get of 'On' status",
-                  "default": "stat/powerStrip/POWER{id}",
+                  "description":"Replace {devicename} with your device unique id",
+                  "default": "DC1/{devicename}/stat/power{id}",
                   "required":true
                },
                "retrieve":{
@@ -59,8 +59,8 @@
                   "properties":{
                      "notify":{
                         "type":"string",
-                        "description":"Topic used to get of 'notify' status",
-                        "default": "stat/powerStrip/POWER{id}",
+                        "description":"Replace {devicename} with your device unique id",
+                        "default": "DC1/{devicename}/cmnd/power{id}",
                         "required":true
                      }
                   }
@@ -69,12 +69,12 @@
          },
          "onValue":{
             "type":"string",
-            "default":"ON",
+            "default":"on",
             "required":true
          },
          "offValue":{
             "type":"string",
-            "default":"OFF",
+            "default":"off",
             "required":true
          }
       }

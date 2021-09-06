@@ -1,19 +1,19 @@
 {
-  "accessory": "mqttPhicommDC1",
-  "name": "TPhicomm DC1",
-  "mqtt": {
-    "host": "192.168.1.1",
-    "port": 8883,
-    "username": "user",
-    "password": "pa$$word"
-  },
-  "topics": {
-    "setOn": "cmnd/powerStrip/POWER{id}",
-    "getOn": "stat/powerStrip/POWER{id}",
-    "retrieve": {
-      "notify": "cmnd/powerStrip/POWER{id}"
-    }
-  },
-  "onValue": "ON",
-  "offValue": "OFF"
+   "name":"Phicomm DC1",
+   "mqtt":{
+      "host":"192.168.1.1",
+      "port":1883,
+      "username":"username",
+      "password":"password"
+   },
+   "topics":{
+      "setOn":"DC1/{devicename}/cmnd/power{id}",
+      "getOn":"DC1/{devicename}/stat/power{id}",
+      "retrieve":{
+         "notify":"DC1/{devicename}/cmnd/power{id}"
+      }
+   },
+   "onValue":"on",
+   "offValue":"off",
+   "accessory":"mqttPhicommDC1"
 }
